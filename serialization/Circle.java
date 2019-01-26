@@ -1,10 +1,10 @@
 package serialization;
 
 public class Circle implements Figure {
-    private static final double PI = 3.141_592_653_589_793;
+    public static final double PI = 3.141_592_653_589_793;
     private String name;
     private int radius;
-    private double square;
+    public double square;
 
     Circle(String name, int radius) {
         this.name = name;

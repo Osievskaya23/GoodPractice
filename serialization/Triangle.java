@@ -1,11 +1,11 @@
 package serialization;
 
 public class Triangle implements Figure {
-    private String name;
+    public String name;
     private int a;
     private int b;
     private int c;
-    private double square;
+    public double square;
 
     Triangle(String name, int a, int b, int c) {
         this.name = name;

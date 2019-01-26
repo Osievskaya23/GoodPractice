@@ -159,11 +159,11 @@ public class XMLEncoder {
         return string;
     }
 
-    private StringBuilder getTabs(int i) {
+    private StringBuilder getTabs(int tabs) {
         StringBuilder tab = new StringBuilder();
-        while (i != 0) {
+        while (tabs != 0) {
             tab.append("\t");
-            i--;
+            tabs--;
         }
         return tab;
     }

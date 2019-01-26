@@ -1,5 +1,6 @@
 package serialization;
 
+import serialization.encoder.JSONEncoder;
 import serialization.encoder.XMLEncoder;
 
 import java.io.File;
@@ -23,18 +24,18 @@ public class Geometry {
         secondGroup.addFigures(secondTriangle, secondSquare, thirdSquare);
         secondGroup.addGroups(firstGroup);
 
-        //secondGroup.getFigureSquares();
+        secondGroup.getFigureSquares();
 
         XMLEncoder xmlEncoder = new XMLEncoder();
-        File secondGroupXMLFile = new File("C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\second_group.xml");
+        String xmlFilePath = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\second_group.xml";
+        File secondGroupXMLFile = new File(xmlFilePath);
 
         xmlEncoder.writeToXML(secondGroupXMLFile, secondGroup);
 
-        /*File secondGroupXMLFile = new File("second_group.xml");
-        xmlEncoder.writeXMLFile(secondGroupXMLFile, serializedXMLGroup)*/
+        JSONEncoder jsonEncoder = new JSONEncoder();
+        String jsonFilePath = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\second_group.json";
+        File secondGroupJSONFile = new File(jsonFilePath);
 
-        /*File secondGroupJsonFile = new File("second_group.json");
-        JSONEncoder.serializeToJson(secondGroupJsonFile, secondGroup);*/
-
+        jsonEncoder.writeToJSON(secondGroupJSONFile, secondGroup);
     }
 }

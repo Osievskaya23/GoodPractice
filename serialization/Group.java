@@ -13,7 +13,7 @@ public class Group {
         this.name = name;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 

@@ -1,9 +1,9 @@
 package serialization;
 
 public class Square implements Figure {
-    private String name;
+    public String name;
     private int a;
-    private double square;
+    public double square;
 
     Square(String name, int a) {
         this.name = name;
