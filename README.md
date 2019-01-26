@@ -6,3 +6,4 @@
     --> patterns.builder (task1);
     --> immutableclass (task2);
     --> serialization (task3);
+        Pacage "files" contains serialization rezults; 
