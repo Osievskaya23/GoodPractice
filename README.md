@@ -7,3 +7,6 @@
     --> immutableclass (task2);
     --> serialization (task3);
         Pacage "files" contains serialization rezults; 
+  # hw3
+    --> carmanipulation (task2_1_1);
+    --> sorting (Merge Sort);
