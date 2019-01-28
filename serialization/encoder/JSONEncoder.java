@@ -94,11 +94,11 @@ public class JSONEncoder {
         string.append(getTabs(tabs));
         string.append("\"figures\":[\n");
         for (Figure figure : group.getFigures()) {
-            string.append(serializeFigureFieldsToJSON(figure, figure.getClass(), tabs + 3));
+            string.append(serializeFigureFieldsToJSON(figure, figure.getClass(), tabs + 2));
         }
         string.deleteCharAt(string.length() - 2);
-        string.append(getTabs(tabs + 2));
-        string.append("  ],\n");
+        string.append(getTabs(tabs + 1));
+        string.append("],\n");
         return string;
     }
 
@@ -107,11 +107,11 @@ public class JSONEncoder {
         string.append(getTabs(tabs));
         string.append("\"groups\":[\n");
         for (Group g : group.getGroups()) {
-            string.append(serializeToJSON(g, g.getClass(), tabs + 3));
+            string.append(serializeToJSON(g, g.getClass(), tabs + 2));
         }
         //string.deleteCharAt(string.length() - 3);
-        string.append(getTabs(tabs + 2));
-        string.append("  ]\n");
+        string.append(getTabs(tabs + 1));
+        string.append("]\n");
         return string;
     }
 
@@ -124,4 +124,3 @@ public class JSONEncoder {
         return tab;
     }
 }
-

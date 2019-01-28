@@ -5,7 +5,7 @@ public class Square implements Figure {
     private int a;
     public double square;
 
-    Square(String name, int a) {
+    public Square(String name, int a) {
         this.name = name;
         this.a = a;
         this.square = calculateSquare();

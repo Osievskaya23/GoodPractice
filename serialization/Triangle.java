@@ -7,7 +7,7 @@ public class Triangle implements Figure {
     private int c;
     public double square;
 
-    Triangle(String name, int a, int b, int c) {
+    public Triangle(String name, int a, int b, int c) {
         this.name = name;
         this.a = a;
         this.b = b;

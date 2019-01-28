@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="10.0.2" class="serialization.Group">
-	<object class="Group" id="1967205423">
+	<object class="Group" id="42121758">
 		<void property="name">
 			<string>VALUE</string>
 		</void>
 		<void property="figures">
 			<list>VALUE</list>
-				<object class="Triangle" id="20671747">
+				<object class="Triangle" id="257895351">
 					<void property="name">
 						<string>VALUE</string>
 					</void>
@@ -26,7 +26,7 @@
 					<void method="getSquare"> </void>
 					<void method="calculateSquare"> </void>
 				</object>
-				<object class="Square" id="1929600551">
+				<object class="Square" id="1690716179">
 					<void property="name">
 						<string>VALUE</string>
 					</void>
@@ -40,7 +40,7 @@
 					<void method="getSquare"> </void>
 					<void method="calculateSquare"> </void>
 				</object>
-				<object class="Square" id="1929600551">
+				<object class="Square" id="1690716179">
 					<void property="name">
 						<string>VALUE</string>
 					</void>
@@ -57,13 +57,13 @@
 		</void>
 		<void property="groups">
 			<list>VALUE</list>
-				<object class="Group" id="1967205423">
+				<object class="Group" id="42121758">
 					<void property="name">
 						<string>VALUE</string>
 					</void>
 					<void property="figures">
 						<list>VALUE</list>
-							<object class="Triangle" id="20671747">
+							<object class="Triangle" id="257895351">
 								<void property="name">
 									<string>VALUE</string>
 								</void>
@@ -83,7 +83,7 @@
 								<void method="getSquare"> </void>
 								<void method="calculateSquare"> </void>
 							</object>
-							<object class="Circle" id="257895351">
+							<object class="Circle" id="1929600551">
 								<void property="PI">
 									<double>VALUE</double>
 								</void>
@@ -100,7 +100,7 @@
 								<void method="getSquare"> </void>
 								<void method="calculateSquare"> </void>
 							</object>
-							<object class="Square" id="1929600551">
+							<object class="Square" id="1690716179">
 								<void property="name">
 									<string>VALUE</string>
 								</void>
@@ -121,16 +121,16 @@
 					<void method="getName"> </void>
 					<void method="addFigures"> </void>
 					<void method="addGroups"> </void>
-					<void method="getFigureSquares"> </void>
-					<void method="getFigures"> </void>
 					<void method="getGroups"> </void>
+					<void method="getFigures"> </void>
+					<void method="getFigureSquares"> </void>
 				</object>
 		</void>
 		<void method="getName"> </void>
 		<void method="addFigures"> </void>
 		<void method="addGroups"> </void>
-		<void method="getFigureSquares"> </void>
-		<void method="getFigures"> </void>
 		<void method="getGroups"> </void>
+		<void method="getFigures"> </void>
+		<void method="getFigureSquares"> </void>
 	</object>
 </java>

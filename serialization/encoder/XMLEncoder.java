@@ -62,10 +62,6 @@ public class XMLEncoder {
         string.append(m.getName());
 
         string.append("\"> </void>\n");
-
-        //string.append("\">\n");
-        //string.append(getTabs(tabs));
-        //string.append("< /void>\n");
         return string;
     }
 

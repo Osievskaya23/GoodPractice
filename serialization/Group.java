@@ -25,16 +25,15 @@ public class Group {
         return groups;
     }
 
-    void addFigures(Figure ... neadAddingFigures) {
+    public void addFigures(Figure ... neadAddingFigures) {
         figures.addAll(Arrays.asList(neadAddingFigures));
     }
 
-    void addGroups(Group ... neadAddGroups) {
+    public void addGroups(Group ... neadAddGroups) {
         groups.addAll(Arrays.asList(neadAddGroups));
     }
 
-
-    void getFigureSquares() {
+    public void getFigureSquares() {
         System.out.print("This group figure squares: \n");
         System.out.println(name + ": \n");
         for (Figure figure : figures) {
