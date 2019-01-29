@@ -1,7 +1,7 @@
 package com.serialization;
 
-import com.serialization.encoder.JSONEncoder;
-import com.serialization.encoder.XMLEncoder;
+import com.serialization.encoder.JsonEncoder;
+import com.serialization.encoder.XmlEncoder;
 
 import java.io.File;
 
@@ -26,13 +26,13 @@ public class Geometry {
 
         secondGroup.getFigureSquares();
 
-        XMLEncoder xmlEncoder = new XMLEncoder();
+        XmlEncoder xmlEncoder = new XmlEncoder();
         String xmlFilePath = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\group.xml";
         File secondGroupXMLFile = new File(xmlFilePath);
 
         xmlEncoder.writeToXML(secondGroupXMLFile, secondGroup);
 
-        JSONEncoder jsonEncoder = new JSONEncoder();
+        JsonEncoder jsonEncoder = new JsonEncoder();
         String jsonFilePath = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\group.json";
         File secondGroupJSONFile = new File(jsonFilePath);
 

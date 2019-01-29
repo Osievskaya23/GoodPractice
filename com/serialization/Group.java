@@ -9,7 +9,7 @@ public class Group {
     private List<Figure> figures = new ArrayList<>();
     private List<Group> groups = new ArrayList<>();
 
-    Group(String name) {
+    public Group(String name) {
         this.name = name;
     }
 

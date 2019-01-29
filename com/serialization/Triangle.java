@@ -2,16 +2,16 @@ package com.serialization;
 
 public class Triangle implements Figure {
     public String name;
-    private int a;
-    private int b;
-    private int c;
+    private int firstSideLength;
+    private int secondSideLength;
+    private int thirdSideLength;
     public double square;
 
-    public Triangle(String name, int a, int b, int c) {
+    public Triangle(String name, int firstSideLength, int secondSideLength, int thirdSideLength) {
         this.name = name;
-        this.a = a;
-        this.b = b;
-        this.c = c;
+        this.firstSideLength = firstSideLength;
+        this.secondSideLength = secondSideLength;
+        this.thirdSideLength = thirdSideLength;
         this.square = calculateSquare();
     }
 
@@ -28,9 +28,11 @@ public class Triangle implements Figure {
     @Override
     public double calculateSquare() {
         double square = 0;
-        if(a + b > c && a + c > b && b + c > a) {
-            int p = (a + b + c) / 2;
-            square = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        if(firstSideLength + secondSideLength > thirdSideLength &&
+                firstSideLength + thirdSideLength > secondSideLength &&
+                secondSideLength + thirdSideLength > firstSideLength) {
+            int p = (firstSideLength + secondSideLength + thirdSideLength) / 2;
+            square = Math.sqrt(p * (p - firstSideLength) * (p - secondSideLength) * (p - thirdSideLength));
         } else {
             System.out.println("Triangle couldn't exist.");
         }

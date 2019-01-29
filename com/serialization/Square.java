@@ -2,12 +2,12 @@ package com.serialization;
 
 public class Square implements Figure {
     public String name;
-    private int a;
+    private int sideLength;
     public double square;
 
-    public Square(String name, int a) {
+    public Square(String name, int sideLength) {
         this.name = name;
-        this.a = a;
+        this.sideLength = sideLength;
         this.square = calculateSquare();
     }
 
@@ -21,6 +21,6 @@ public class Square implements Figure {
 
     @Override
     public double calculateSquare() {
-        return Math.pow(a, 2);
+        return Math.pow(sideLength, 2);
     }
 }

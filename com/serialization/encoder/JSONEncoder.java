@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 
-public class JSONEncoder {
+public class JsonEncoder {
     public void writeToJSON(File file, Group group) {
         Class clazz = group.getClass();
         StringBuilder groupToXML = serializeToJSON(group, clazz, 0);
@@ -76,8 +76,9 @@ public class JSONEncoder {
             case "groups":
                 string.append(getGroupListItemsLine(group, tabs));
                 return string;
+            default:
+                return string;
         }
-        return string;
     }
 
     private StringBuilder getNameFieldLine(Group group, int tabs) {

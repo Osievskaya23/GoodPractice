@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 
-public class XMLEncoder {
+public class XmlEncoder {
     public void writeToXML(File file, Group group) throws IllegalAccessException{
         Class clazz = group.getClass();
         StringBuilder groupToXML = serializeToXML(group, clazz, 1);
