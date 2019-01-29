@@ -6,6 +6,9 @@ import com.serialization.encoder.XmlEncoder;
 import java.io.File;
 
 public class Geometry {
+    private final static String PATH_XML = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\group.xml";
+    private final static String PATH_JSON = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\group.json";
+
     public static void main(String[] args) throws IllegalAccessException{
         Group firstGroup = new Group("Group_1");
         Group secondGroup = new Group("Group_2");
@@ -27,14 +30,12 @@ public class Geometry {
         secondGroup.getFigureSquares();
 
         XmlEncoder xmlEncoder = new XmlEncoder();
-        String xmlFilePath = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\group.xml";
-        File secondGroupXMLFile = new File(xmlFilePath);
+        File secondGroupXMLFile = new File(PATH_XML);
 
         xmlEncoder.writeToXML(secondGroupXMLFile, secondGroup);
 
         JsonEncoder jsonEncoder = new JsonEncoder();
-        String jsonFilePath = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\group.json";
-        File secondGroupJSONFile = new File(jsonFilePath);
+        File secondGroupJSONFile = new File(PATH_JSON);
 
         jsonEncoder.writeToJSON(secondGroupJSONFile, secondGroup);
     }
