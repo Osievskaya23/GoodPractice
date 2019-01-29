@@ -27,13 +27,13 @@ public class Geometry {
         secondGroup.getFigureSquares();
 
         XMLEncoder xmlEncoder = new XMLEncoder();
-        String xmlFilePath = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\second_group.xml";
+        String xmlFilePath = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\group.xml";
         File secondGroupXMLFile = new File(xmlFilePath);
 
         xmlEncoder.writeToXML(secondGroupXMLFile, secondGroup);
 
         JSONEncoder jsonEncoder = new JSONEncoder();
-        String jsonFilePath = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\second_group.json";
+        String jsonFilePath = "C:\\Users\\38066\\IdeaProjects\\GoodPractice\\src\\files\\group.json";
         File secondGroupJSONFile = new File(jsonFilePath);
 
         jsonEncoder.writeToJSON(secondGroupJSONFile, secondGroup);
