@@ -4,19 +4,19 @@
         <figures>
             <triangle>
                 <name>Triangle_2</name>
-                <a>4</a>
-                <b>4</b>
-                <c>4</c>
+                <firstSideLength>4</firstSideLength>
+                <secondSideLength>4</secondSideLength>
+                <thirdSideLength>4</thirdSideLength>
                 <square>6.928203230275509</square>
             </triangle>
             <square>
                 <name>Square_2</name>
-                <a>4</a>
+                <sideLength>4</sideLength>
                 <square>16.0</square>
             </square>
             <square>
                 <name>Square_3</name>
-                <a>6</a>
+                <sideLength>6</sideLength>
                 <square>36.0</square>
             </square>
         </figures>
@@ -26,9 +26,9 @@
                 <figures>
                     <triangle>
                         <name>Triangle_1</name>
-                        <a>3</a>
-                        <b>4</b>
-                        <c>5</c>
+                        <firstSideLength>3</firstSideLength>
+                        <secondSideLength>4</secondSideLength>
+                        <thirdSideLength>5</thirdSideLength>
                         <square>6.0</square>
                     </triangle>
                     <circle>
@@ -39,7 +39,7 @@
                     </circle>
                     <square>
                         <name>Square_1</name>
-                        <a>2</a>
+                        <sideLength>2</sideLength>
                         <square>4.0</square>
                     </square>
                 </figures>
