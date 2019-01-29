@@ -1,136 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="10.0.2" class="serialization.Group">
-	<object class="Group" id="1967205423">
-		<void property="name">
-			<string>VALUE</string>
-		</void>
-		<void property="figures">
-			<list>VALUE</list>
-				<object class="Triangle" id="20671747">
-					<void property="name">
-						<string>VALUE</string>
-					</void>
-					<void property="a">
-						<int>VALUE</int>
-					</void>
-					<void property="b">
-						<int>VALUE</int>
-					</void>
-					<void property="c">
-						<int>VALUE</int>
-					</void>
-					<void property="square">
-						<double>VALUE</double>
-					</void>
-					<void method="getName"> </void>
-					<void method="getSquare"> </void>
-					<void method="calculateSquare"> </void>
-				</object>
-				<object class="Square" id="1929600551">
-					<void property="name">
-						<string>VALUE</string>
-					</void>
-					<void property="a">
-						<int>VALUE</int>
-					</void>
-					<void property="square">
-						<double>VALUE</double>
-					</void>
-					<void method="getName"> </void>
-					<void method="getSquare"> </void>
-					<void method="calculateSquare"> </void>
-				</object>
-				<object class="Square" id="1929600551">
-					<void property="name">
-						<string>VALUE</string>
-					</void>
-					<void property="a">
-						<int>VALUE</int>
-					</void>
-					<void property="square">
-						<double>VALUE</double>
-					</void>
-					<void method="getName"> </void>
-					<void method="getSquare"> </void>
-					<void method="calculateSquare"> </void>
-				</object>
-		</void>
-		<void property="groups">
-			<list>VALUE</list>
-				<object class="Group" id="1967205423">
-					<void property="name">
-						<string>VALUE</string>
-					</void>
-					<void property="figures">
-						<list>VALUE</list>
-							<object class="Triangle" id="20671747">
-								<void property="name">
-									<string>VALUE</string>
-								</void>
-								<void property="a">
-									<int>VALUE</int>
-								</void>
-								<void property="b">
-									<int>VALUE</int>
-								</void>
-								<void property="c">
-									<int>VALUE</int>
-								</void>
-								<void property="square">
-									<double>VALUE</double>
-								</void>
-								<void method="getName"> </void>
-								<void method="getSquare"> </void>
-								<void method="calculateSquare"> </void>
-							</object>
-							<object class="Circle" id="257895351">
-								<void property="PI">
-									<double>VALUE</double>
-								</void>
-								<void property="name">
-									<string>VALUE</string>
-								</void>
-								<void property="radius">
-									<int>VALUE</int>
-								</void>
-								<void property="square">
-									<double>VALUE</double>
-								</void>
-								<void method="getName"> </void>
-								<void method="getSquare"> </void>
-								<void method="calculateSquare"> </void>
-							</object>
-							<object class="Square" id="1929600551">
-								<void property="name">
-									<string>VALUE</string>
-								</void>
-								<void property="a">
-									<int>VALUE</int>
-								</void>
-								<void property="square">
-									<double>VALUE</double>
-								</void>
-								<void method="getName"> </void>
-								<void method="getSquare"> </void>
-								<void method="calculateSquare"> </void>
-							</object>
-					</void>
-					<void property="groups">
-						<list>VALUE</list>
-					</void>
-					<void method="getName"> </void>
-					<void method="addFigures"> </void>
-					<void method="addGroups"> </void>
-					<void method="getFigureSquares"> </void>
-					<void method="getFigures"> </void>
-					<void method="getGroups"> </void>
-				</object>
-		</void>
-		<void method="getName"> </void>
-		<void method="addFigures"> </void>
-		<void method="addGroups"> </void>
-		<void method="getFigureSquares"> </void>
-		<void method="getFigures"> </void>
-		<void method="getGroups"> </void>
-	</object>
-</java>
+	<group>
+		<name>Group_2</name>
+		<figures>
+			<triangle>
+				<name>Triangle_2</name>
+				<a>4</a>
+				<b>4</b>
+				<c>4</c>
+				<square>6.928203230275509</square>
+			</triangle>
+			<square>
+				<name>Square_2</name>
+				<a>4</a>
+				<square>16.0</square>
+			</square>
+			<square>
+				<name>Square_3</name>
+				<a>6</a>
+				<square>36.0</square>
+			</square>
+		</figures>
+		<groups>
+			<group>
+				<name>Group_1</name>
+				<figures>
+					<triangle>
+						<name>Triangle_1</name>
+						<a>3</a>
+						<b>4</b>
+						<c>5</c>
+						<square>6.0</square>
+					</triangle>
+					<circle>
+						<PI>3.141592653589793</PI>
+						<name>Circle_1</name>
+						<radius>5</radius>
+						<square>78.53981633974483</square>
+					</circle>
+					<square>
+						<name>Square_1</name>
+						<a>2</a>
+						<square>4.0</square>
+					</square>
+				</figures>
+				<groups>
+				</groups>
+			</group>
+		</groups>
+	</group>
