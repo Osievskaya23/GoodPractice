@@ -33,7 +33,7 @@ public class Group {
         groups.addAll(Arrays.asList(neadAddGroups));
     }
 
-    public void getFigureSquares() {
+    public void printFigureSquares() {
         System.out.print("This group figure squares: \n");
         System.out.println(name + ": \n");
         for (Figure figure : figures) {

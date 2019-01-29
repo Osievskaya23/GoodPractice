@@ -27,7 +27,7 @@ public class Geometry {
         secondGroup.addFigures(secondTriangle, secondSquare, thirdSquare);
         secondGroup.addGroups(firstGroup);
 
-        secondGroup.getFigureSquares();
+        secondGroup.printFigureSquares();
 
         XmlEncoder xmlEncoder = new XmlEncoder();
         File secondGroupXMLFile = new File(PATH_XML);
