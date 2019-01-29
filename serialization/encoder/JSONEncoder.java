@@ -118,7 +118,7 @@ public class JSONEncoder {
     private StringBuilder getTabs(int tabs) {
         StringBuilder tab = new StringBuilder();
         while (tabs != 0) {
-            tab.append("\t");
+            tab.append("  ");
             tabs--;
         }
         return tab;

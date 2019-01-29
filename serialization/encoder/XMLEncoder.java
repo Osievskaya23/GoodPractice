@@ -1,7 +1,5 @@
 package serialization.encoder;
 
-import static java.lang.System.identityHashCode;
-
 import serialization.Figure;
 import serialization.Group;
 
@@ -9,11 +7,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.List;
 
 public class XMLEncoder {
-    public void writeToXML(File file, Group group) {
+    public void writeToXML(File file, Group group) throws IllegalAccessException{
         Class clazz = group.getClass();
         StringBuilder groupToXML = serializeToXML(group, clazz, 1);
 
@@ -24,66 +21,81 @@ public class XMLEncoder {
         }
     }
 
-    private StringBuilder serializeToXML(Group group, Class clazz, int tabs) {
+    private StringBuilder serializeToXML(Group group, Class clazz, int tabs) throws IllegalAccessException{
         StringBuilder string = new StringBuilder();
         string.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-        string.append(getClassHeader(clazz));
         string.append(getGroupXMLCode(group, clazz, tabs));
-        string.append("</java>\n");
         return string;
     }
 
-    private StringBuilder getGroupXMLCode(Group group, Class clazz, int tabs) {
+    private StringBuilder getGroupXMLCode(Group group, Class clazz, int tabs) throws IllegalAccessException{
         StringBuilder string = new StringBuilder();
-
-        string.append(getObjectClassLine(clazz, tabs));
-
-        string.append(getObjectFieldsLine(group, clazz, tabs + 1));
-        string.append(getObjectMethodLine(clazz, tabs + 1));
-
-        string.append(getTabs(tabs));
-        string.append("</object>\n");
+        string.append(getOpenClassName(clazz, tabs));
+        string.append(getGroupFieldsLine(group, clazz, tabs + 1));
+        string.append(getCloseClassName(clazz, tabs));
         return string;
     }
 
-    private StringBuilder getObjectMethodLine(Class clazz, int tabs) {
-        StringBuilder string = new StringBuilder();
-        Method[] methods = clazz.getDeclaredMethods();
-        for (Method m : methods) {
-            string.append(getMethodPropertyLine(clazz, m, tabs));
-        }
-        return string;
-    }
-
-    private StringBuilder getMethodPropertyLine(Class clazz, Method m, int tabs) {
+    private StringBuilder getCloseClassName(Class clazz, int tabs) {
         StringBuilder string = new StringBuilder();
         string.append(getTabs(tabs));
-        string.append("<void method=\"");
-        string.append(m.getName());
-
-        string.append("\"> </void>\n");
-
-        //string.append("\">\n");
-        //string.append(getTabs(tabs));
-        //string.append("< /void>\n");
+        string.append("</");
+        string.append(clazz.getSimpleName().toLowerCase());
+        string.append( ">\n");
         return string;
     }
 
-    private StringBuilder getFigureListObjectItemsToXML(Group group, int tabs) {
+    private StringBuilder getOpenClassName(Class clazz, int tabs) {
+        StringBuilder string = new StringBuilder();
+        string.append(getTabs(tabs));
+        string.append("<");
+        string.append(clazz.getSimpleName().toLowerCase());
+        string.append( ">\n");
+        return string;
+    }
+
+    private StringBuilder getFigureListObjectItemsToXML(Group group, int tabs) throws IllegalAccessException {
         List<Figure> figures = group.getFigures();
         StringBuilder string = new StringBuilder();
         for (Figure figure : figures) {
             Class clazz = figure.getClass();
-            string.append(getObjectClassLine(clazz, tabs));
-            string.append(getObjectFieldsLine(group, clazz, tabs + 1));
-            string.append(getObjectMethodLine(clazz, tabs + 1));
-            string.append(getTabs(tabs));
-            string.append("</object>\n");
+            string.append(getOpenClassName(clazz, tabs));
+            string.append(getFigureFieldsLine(figure, clazz, tabs + 1));
+            string.append(getCloseClassName(clazz, tabs));
         }
         return string;
     }
 
-    private StringBuilder getGroupListObjectItemsToXML(Group group, Class clazz, int tabs) {
+    private StringBuilder getFigureFieldsLine(Figure figure, Class clazz, int tabs) throws IllegalAccessException{
+        StringBuilder string = new StringBuilder();
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field f : fields) {
+            f.setAccessible(true);
+            string.append(getOpenFieldName(f, tabs));
+            string.append(f.get(figure));
+            string.append(getCloseFieldName(f, tabs));
+        }
+        return string;
+    }
+
+    private StringBuilder getCloseFieldName(Field field, int tabs) {
+        StringBuilder string = new StringBuilder();
+        string.append("</");
+        string.append(field.getName());
+        string.append(">\n");
+        return string;
+    }
+
+    private StringBuilder getOpenFieldName(Field field, int tabs) {
+        StringBuilder string = new StringBuilder();
+        string.append(getTabs(tabs));
+        string.append("<");
+        string.append(field.getName());
+        string.append(">");
+        return string;
+    }
+
+    private StringBuilder getGroupListObjectItemsToXML(Group group, Class clazz, int tabs) throws IllegalAccessException{
         List<Group> groups = group.getGroups();
         StringBuilder string = new StringBuilder();
         for (Group g : groups) {
@@ -92,70 +104,34 @@ public class XMLEncoder {
         return string;
     }
 
-    private StringBuilder getObjectFieldsLine(Group group, Class clazz, int tabs) {
+    private StringBuilder getGroupFieldsLine(Group group, Class clazz, int tabs) throws IllegalAccessException{
         StringBuilder string = new StringBuilder();
         Field[] fields = clazz.getDeclaredFields();
         for (Field f : fields) {
-            string.append(getPropertyNameLine(f, tabs));
-            string.append(getPropertyValueLine(f, tabs + 1));
-            string.append(getFieldObjectValue(group, clazz, f.getName(), tabs + 2));
-            string.append(getTabs(tabs));
-            string.append("</void>\n");
+            f.setAccessible(true);
+            string.append(getOpenFieldName(f, tabs));
+            string.append(getFieldObjectValue(group, clazz, f, f.getName(), tabs + 1));
+            string.append(getCloseFieldName(f, tabs));
         }
         return string;
     }
 
-    private StringBuilder getFieldObjectValue(Group group, Class clazz, String fieldName, int tabs) {
+    private StringBuilder getFieldObjectValue(Group group, Class clazz, Field field, String fieldName, int tabs) throws IllegalAccessException{
         StringBuilder string = new StringBuilder();
         switch (fieldName) {
+            case "name" :
+                return string.append(field.get(group));
             case "figures":
+                string.append("\n");
                 string.append(getFigureListObjectItemsToXML(group, tabs));
+                string.append(getTabs(tabs - 1));
                 return string;
             case "groups":
+                string.append("\n");
                 string.append(getGroupListObjectItemsToXML(group, clazz, tabs));
+                string.append(getTabs(tabs - 1));
                 return string;
         }
-        return string;
-    }
-
-    private StringBuilder getPropertyValueLine(Field f, int tabs) {
-        StringBuilder string = new StringBuilder();
-        string.append(getTabs(tabs));
-        string.append("<");
-        string.append(f.getType().getSimpleName().toLowerCase());
-        string.append(">");
-        string.append("VALUE");
-        string.append("</");
-        string.append(f.getType().getSimpleName().toLowerCase());
-        string.append(">\n");
-        return string;
-    }
-
-    private StringBuilder getPropertyNameLine(Field f, int tabs) {
-        StringBuilder string = new StringBuilder();
-        string.append(getTabs(tabs));
-        string.append("<void property=\"");
-        string.append(f.getName());
-        string.append("\">\n");
-        return string;
-    }
-
-    private StringBuilder getObjectClassLine(Class clazz, int tabs) {
-        StringBuilder string = new StringBuilder();
-        string.append(getTabs(tabs));
-        string.append("<object class=\"");
-        string.append(clazz.getSimpleName());
-        string.append("\" id=\"");
-        string.append(identityHashCode(clazz));
-        string.append( "\">\n");
-        return string;
-    }
-
-    private StringBuilder getClassHeader(Class clazz) {
-        StringBuilder string = new StringBuilder();
-        string.append("<java version=\"10.0.2\" class=\"");
-        string.append(clazz.getName());
-        string.append("\">\n");
         return string;
     }
 
