@@ -6,7 +6,7 @@ import serialization.encoder.XMLEncoder;
 import java.io.File;
 
 public class Geometry {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException{
         Group firstGroup = new Group("Group_1");
         Group secondGroup = new Group("Group_2");
 

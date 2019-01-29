@@ -2,7 +2,7 @@ package сalculator;
 
 import java.util.Scanner;
 
-class Calculator {
+class ArabRomeCalculator {
     void run() {
         double[] numbers = new double[2];
         Scanner scanner = new Scanner(System.in);
@@ -164,17 +164,5 @@ class Calculator {
         if (n.equals("M"))
             return 1000;
         return -1;
-    }
-}
-
-class CalculatorTest {
-    public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter \"start\" to run");
-        while (scanner.nextLine().equals("start")) {
-            calculator.run();
-        }
     }
 }
