@@ -1,7 +1,7 @@
 package immutableclass;
 
 public class ImmutableClassTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException{
         ImmutableAnimal cat = new ImmutableAnimal("Cat", 3, new Family("father Cat", "mother Cat"));
         System.out.println("Cat before changing family:" +
                 "cat name = " + cat.getName() + ";\n" +
