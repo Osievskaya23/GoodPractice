@@ -1,6 +1,5 @@
 package com.calculator;
 
-import java.security.PublicKey;
 import java.util.Scanner;
 
 public class ArabRomeCalculator {
@@ -165,21 +164,14 @@ public class ArabRomeCalculator {
      *   CM - 900
      *   M  - 1000
      */
-    private double getValue(char symbol) {
-        if (symbol == 'I')
-            return 1;
-        if (symbol == 'V')
-            return 5;
-        if (symbol == 'X')
-            return 10;
-        if (symbol == 'L')
-            return 50;
-        if (symbol == 'C')
-            return 100;
-        if (symbol == 'D')
-            return 500;
-        if (symbol == 'M')
-            return 1000;
+    private int getValue(char symbol) {
+        if (symbol == 'I') { return 1; }
+        if (symbol == 'V') { return 5; }
+        if (symbol == 'X') { return 10; }
+        if (symbol == 'L') { return 50; }
+        if (symbol == 'C') { return 100; }
+        if (symbol == 'D') { return 500; }
+        if (symbol == 'M') { return 1000; }
         return -1;
     }
 }
