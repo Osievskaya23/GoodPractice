@@ -4,21 +4,6 @@ import java.util.Scanner;
 
 public class ArabRomeCalculator {
 
-    enum Operation {
-        ADDITION {
-            public double calculate(double value1, double value2) {return value1 + value2;}
-        },
-        SUBTRACTION {
-            public double calculate(double value1, double value2) {return value1 - value2;}
-        },
-        MULTIPLICATION {
-            public double calculate(double value1, double value2) {return value1 * value2;}
-        },
-        DIVISION {
-            public double calculate(double value1, double value2) {return value1 / value2;}
-        }
-    }
-
     public void run() {
         double[] numbers = new double[2];
         Scanner scanner = new Scanner(System.in);
@@ -55,7 +40,7 @@ public class ArabRomeCalculator {
                 return value1 / value2;
             default:
                 System.out.println("Illegal input");
-            return 0;
+                return 0;
         }
     }
 
