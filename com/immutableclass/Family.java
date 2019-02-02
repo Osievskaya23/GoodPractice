@@ -5,24 +5,24 @@ public class Family implements Cloneable{
     private String father;
     private String mother;
 
-    Family(String father, String mother) {
+    public Family(String father, String mother) {
         this.father = father;
         this.mother = mother;
     }
 
-    String getFather() {
+    public String getFather() {
         return father;
     }
 
-    void setFather(String father) {
+    public void setFather(String father) {
         this.father = father;
     }
 
-    String getMother() {
+    public String getMother() {
         return mother;
     }
 
-    void setMother(String mother) {
+    public void setMother(String mother) {
         this.mother = mother;
     }
 
