@@ -1,12 +1,12 @@
 # GoodPractice
 
   # hw1 
-    --> arraypractice;
+    --> com.arraypractice;
   # hw2 
-    --> patterns.builder.HouseBuilderTest.java;
-    --> immutableclass.ImmutableClassTest.lava;
-    --> serialization (pacage "files" contains serialization rezults); 
+    --> com.patterns.builder.HouseBuilderTest.java;
+    --> com.immutableclass.ImmutableClassTest.lava;
+    --> com.serialization (pacage "files" contains serialization rezults); 
   # hw3
-    --> carmanipulations;
-    --> sorting.MergeSort.java;
-    --> RomeArabCalculator.java
+    --> com.carmanipulations;
+    --> com.sorting;
+    --> com.calculator;
