@@ -6,15 +6,15 @@ import java.util.List;
 public class Team {
     private List<Developer> developers = new ArrayList<>();
 
-    void addDeveloper(Developer developer) {
+    public void addDeveloper(Developer developer) {
         developers.add(developer);
     }
 
-    void removeDeveloper(Developer developer) {
+    public void removeDeveloper(Developer developer) {
         developers.remove(developer);
     }
 
-    void createProject() {
+    public void createProject() {
         System.out.println("Team creates project...\n");
         for(Developer developer : developers) {
             developer.writeCode();
