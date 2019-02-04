@@ -10,25 +10,25 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 public class XmlEncoder {
-    public void writeToXML(File file, Group group) throws IllegalAccessException{
+    public void writeToXml(File file, Group group) throws IllegalAccessException{
         Class clazz = group.getClass();
-        StringBuilder groupToXML = serializeToXML(group, clazz, 1);
+        StringBuilder groupToXml = serializeToXml(group, clazz, 1);
 
         try(FileWriter fileWriter = new FileWriter(file)) {
-            fileWriter.write(groupToXML.toString());
+            fileWriter.write(groupToXml.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private StringBuilder serializeToXML(Group group, Class clazz, int tabs) throws IllegalAccessException{
+    private StringBuilder serializeToXml(Group group, Class clazz, int tabs) throws IllegalAccessException{
         StringBuilder string = new StringBuilder();
         string.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-        string.append(getGroupXMLCode(group, clazz, tabs));
+        string.append(getGroupXmlCode(group, clazz, tabs));
         return string;
     }
 
-    private StringBuilder getGroupXMLCode(Group group, Class clazz, int tabs) throws IllegalAccessException{
+    private StringBuilder getGroupXmlCode(Group group, Class clazz, int tabs) throws IllegalAccessException{
         StringBuilder string = new StringBuilder();
         string.append(getOpenClassName(clazz, tabs));
         string.append(getGroupFieldsLine(group, clazz, tabs + 1));
@@ -54,7 +54,7 @@ public class XmlEncoder {
         return string;
     }
 
-    private StringBuilder getFigureListObjectItemsToXML(Group group, int tabs) throws IllegalAccessException {
+    private StringBuilder getFigureListObjectItemsToXml(Group group, int tabs) throws IllegalAccessException {
         List<Figure> figures = group.getFigures();
         StringBuilder string = new StringBuilder();
         for (Figure figure : figures) {
@@ -95,11 +95,11 @@ public class XmlEncoder {
         return string;
     }
 
-    private StringBuilder getGroupListObjectItemsToXML(Group group, Class clazz, int tabs) throws IllegalAccessException{
+    private StringBuilder getGroupListObjectItemsToXml(Group group, Class clazz, int tabs) throws IllegalAccessException{
         List<Group> groups = group.getGroups();
         StringBuilder string = new StringBuilder();
         for (Group g : groups) {
-            string.append(getGroupXMLCode(g, clazz, tabs));
+            string.append(getGroupXmlCode(g, clazz, tabs));
         }
         return string;
     }
@@ -123,12 +123,12 @@ public class XmlEncoder {
                 return string.append(field.get(group));
             case "figures":
                 string.append("\n");
-                string.append(getFigureListObjectItemsToXML(group, tabs));
+                string.append(getFigureListObjectItemsToXml(group, tabs));
                 string.append(getTabs(tabs - 1));
                 return string;
             case "groups":
                 string.append("\n");
-                string.append(getGroupListObjectItemsToXML(group, clazz, tabs));
+                string.append(getGroupListObjectItemsToXml(group, clazz, tabs));
                 string.append(getTabs(tabs - 1));
                 return string;
         }
