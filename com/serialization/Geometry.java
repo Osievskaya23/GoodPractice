@@ -30,13 +30,13 @@ public class Geometry {
         secondGroup.printFigureSquares();
 
         XmlEncoder xmlEncoder = new XmlEncoder();
-        File secondGroupXMLFile = new File(PATH_XML);
+        File secondGroupXmlFile = new File(PATH_XML);
 
-        xmlEncoder.writeToXML(secondGroupXMLFile, secondGroup);
+        xmlEncoder.writeToXml(secondGroupXmlFile, secondGroup);
 
         JsonEncoder jsonEncoder = new JsonEncoder();
-        File secondGroupJSONFile = new File(PATH_JSON);
+        File secondGroupJsonFile = new File(PATH_JSON);
 
-        jsonEncoder.writeToJSON(secondGroupJSONFile, secondGroup);
+        jsonEncoder.writeToJson(secondGroupJsonFile, secondGroup);
     }
 }
