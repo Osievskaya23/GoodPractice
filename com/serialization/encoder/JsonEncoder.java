@@ -20,17 +20,17 @@ public class JsonEncoder {
         }
     }
 
-    private StringBuilder serializeToJSON(Group group, Class clazz, int tabs) {
+    private StringBuilder serializeToJson(Group group, Class clazz, int tabs) {
         StringBuilder string = new StringBuilder();
         string.append(getTabs(tabs));
         string.append("{\n");
-        string.append(serializeGroupFieldsToJSON(group, clazz, tabs + 1));
+        string.append(serializeGroupFieldsToJson(group, clazz, tabs + 1));
         string.append(getTabs(tabs));
         string.append("}\n");
         return string;
     }
 
-    private StringBuilder serializeGroupFieldsToJSON(Group group, Class clazz, int tabs) {
+    private StringBuilder serializeGroupFieldsToJson(Group group, Class clazz, int tabs) {
         StringBuilder string = new StringBuilder();
         Field[] fields = clazz.getDeclaredFields();
         for (Field f : fields) {
@@ -39,7 +39,7 @@ public class JsonEncoder {
         return string;
     }
 
-    private StringBuilder serializeFigureFieldsToJSON(Figure figure, Class clazz, int tabs) {
+    private StringBuilder serializeFigureFieldsToJson(Figure figure, Class clazz, int tabs) {
         StringBuilder string = new StringBuilder();
         Field[] fields = clazz.getFields();
         string.append(getTabs(tabs));
@@ -95,7 +95,7 @@ public class JsonEncoder {
         string.append(getTabs(tabs));
         string.append("\"figures\":[\n");
         for (Figure figure : group.getFigures()) {
-            string.append(serializeFigureFieldsToJSON(figure, figure.getClass(), tabs + 2));
+            string.append(serializeFigureFieldsToJson(figure, figure.getClass(), tabs + 2));
         }
         string.deleteCharAt(string.length() - 2);
         string.append(getTabs(tabs + 1));
@@ -108,7 +108,7 @@ public class JsonEncoder {
         string.append(getTabs(tabs));
         string.append("\"groups\":[\n");
         for (Group g : group.getGroups()) {
-            string.append(serializeToJSON(g, g.getClass(), tabs + 2));
+            string.append(serializeToJson(g, g.getClass(), tabs + 2));
         }
         //string.deleteCharAt(string.length() - 3);
         string.append(getTabs(tabs + 1));
