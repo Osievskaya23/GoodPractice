@@ -9,12 +9,12 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 
 public class JsonEncoder {
-    public void writeToJSON(File file, Group group) {
+    public void writeToJson(File file, Group group) {
         Class clazz = group.getClass();
-        StringBuilder groupToXML = serializeToJSON(group, clazz, 0);
+        StringBuilder groupToXml = serializeToJson(group, clazz, 0);
 
         try(FileWriter fileWriter = new FileWriter(file)) {
-            fileWriter.write(groupToXML.toString());
+            fileWriter.write(groupToXml.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
