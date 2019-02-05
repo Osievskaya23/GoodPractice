@@ -1,4 +1,4 @@
 # GoodPractice
 
   # hw4
-  --> \com\list\.
+    --> \com\list\.
