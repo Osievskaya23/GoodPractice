@@ -14,16 +14,13 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T get(int index) {
-        if (index < size) {
-            return (T)elementData[index];
-        } else {
-            throw new ArrayIndexOutOfBoundsException();
-        }
+        checkIndexException(index);
+        return (T)elementData[index];
     }
 
     private void checkIndexException(int index) {
         if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
+            throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
     }
 
